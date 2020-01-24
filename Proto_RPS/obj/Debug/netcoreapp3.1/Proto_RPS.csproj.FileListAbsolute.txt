@@ -1,0 +1,11 @@
+D:\RockPaperScisoors\Prototype\Proto_RPS\bin\Debug\netcoreapp3.1\Proto_RPS.exe
+D:\RockPaperScisoors\Prototype\Proto_RPS\bin\Debug\netcoreapp3.1\Proto_RPS.deps.json
+D:\RockPaperScisoors\Prototype\Proto_RPS\bin\Debug\netcoreapp3.1\Proto_RPS.runtimeconfig.json
+D:\RockPaperScisoors\Prototype\Proto_RPS\bin\Debug\netcoreapp3.1\Proto_RPS.runtimeconfig.dev.json
+D:\RockPaperScisoors\Prototype\Proto_RPS\bin\Debug\netcoreapp3.1\Proto_RPS.dll
+D:\RockPaperScisoors\Prototype\Proto_RPS\bin\Debug\netcoreapp3.1\Proto_RPS.pdb
+D:\RockPaperScisoors\Prototype\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.csprojAssemblyReference.cache
+D:\RockPaperScisoors\Prototype\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.AssemblyInfoInputs.cache
+D:\RockPaperScisoors\Prototype\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.AssemblyInfo.cs
+D:\RockPaperScisoors\Prototype\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.dll
+D:\RockPaperScisoors\Prototype\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.pdb

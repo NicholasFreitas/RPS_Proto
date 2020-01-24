@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Proto_RPS/1.0.0": {
+        "runtime": {
+          "Proto_RPS.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Proto_RPS/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
