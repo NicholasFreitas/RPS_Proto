@@ -6,14 +6,28 @@ namespace Proto_RPS
 {
     class BotStrategyFactory
     {
-        private IBotStrategy RandomBotStrategy() 
+        public static IBotStrategy GetBot(BotType botType) 
         {
-            return null;
+            switch (botType)
+            {
+                case BotType.Random:
+                    return RandomBotStrategy();
+                case BotType.Strategic:
+                    return StrategicBotStrategy();
+                
+                default:
+                    return RandomBotStrategy();
+            }
         }
 
-        private IBotStrategy StrategicBotStrategy() 
+        private static IBotStrategy RandomBotStrategy() 
         {
-            return null;
+            return new RandomBotStrategy();
+        }
+
+        private static IBotStrategy StrategicBotStrategy() 
+        {
+            return new StrategicBotStrategy();
         }
 
     }

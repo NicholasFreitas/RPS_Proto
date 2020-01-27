@@ -6,7 +6,10 @@ namespace Proto_RPS
 {
     public class Configuration
     {
-        public int FirstToIntWins { get; set; }
+        /// <summary>
+        /// Default is 3
+        /// </summary>
+        public int FirstToIntWins { get; set; } = 3;
 
     }
 }

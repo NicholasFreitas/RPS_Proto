@@ -17,5 +17,11 @@ namespace Proto_RPS
         public void CreatePlayerTwo(string name);
 
         public void CreatePlayerTwoBot(BotType botType);
+               
+        public void PlayerOnePickObject(PlayerObject playerObject);
+
+        public void PlayerTwoPickObject(PlayerObject playerObject);
+        
+        public RoundResult SHOOT();
     }
 }

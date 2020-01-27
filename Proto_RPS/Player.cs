@@ -11,9 +11,7 @@ namespace Proto_RPS
         IPlayerObject PlayerObject;
 
         IBotStrategy BotStrategy;
-
-        int Wins = 0;
-
+         
         public Player()
         {
         }
@@ -34,10 +32,11 @@ namespace Proto_RPS
             Name = playerName;
         }
 
-        public void SelectObject(IPlayerObject playerObject) 
+        public void SelectObject(IPlayerObject playerObject)
         {
-            PlayerObject = playerObject;
+            PlayerObject = playerObject;                                          
         }
+
 
         public string Shoot() 
         {
@@ -49,10 +48,22 @@ namespace Proto_RPS
             return PlayerObject.ShowWeakness();
         }
 
-        public void HasWon() 
+        public string GetPlayerName() 
         {
-            Wins++;
+            return Name;
         }
 
+
+        //Bot Method
+        public void SelectObject()
+        {
+            PlayerObject = BotStrategy.RunBotStrategy();
+        }
+
+        //Bot Method
+        public void ViewResult(RoundResult result) 
+        {
+            BotStrategy.ViewResults(result);
+        }
     }
 }

@@ -8,7 +8,8 @@ namespace Proto_RPS
     {
         Rock,
         Paper,
-        Scissors
+        Scissors,
+        Bot
     }
 
     class PlayerObjectFactory

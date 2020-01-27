@@ -4,15 +4,21 @@ using System.Text;
 
 namespace Proto_RPS
 {
-    class RandomBotStraegy : IBotStrategy
+    class StrategicBotStrategy : IBotStrategy
     {
 
-        public void BotReadResult(bool win)
+        public IPlayerObject RunBotStrategy()
         {
+            //First choice is random.
+
+
+
+
+
             throw new NotImplementedException();
         }
 
-        public IPlayerObject RunBotStrategy()
+        public void ViewResults(RoundResult result)
         {
             throw new NotImplementedException();
         }

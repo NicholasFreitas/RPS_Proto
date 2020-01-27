@@ -7,6 +7,7 @@ namespace Proto_RPS
     public interface IBotStrategy
     {
         public IPlayerObject RunBotStrategy();
+        public void ViewResults(RoundResult result);
 
     }
 }
