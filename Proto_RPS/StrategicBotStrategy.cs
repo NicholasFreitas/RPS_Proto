@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Proto_RPS
 {
-    class StrategicBotStrategy : IBotStrategy
+    public class StrategicBotStrategy : IBotStrategy
     {
         bool IsFirstTurn = true;
 

@@ -7,71 +7,51 @@ namespace Proto_RPS
         static void Main(string[] args)
         {
 
+            Console.WriteLine("Starting Rock, Paper, Scissors...");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadLine();
+
             var game = new RockPaperScissors();
-            
+
             /* Game configs */
-            game.GameConfig.FirstToIntWins = 10;
+            game.GameConfig.FirstToIntWins = 3;
 
-            /* Create players */
-
-            //Player one
-            //game.CreatePlayerOne("John");
-
-            game.CreatePlayerOneBot(BotType.Random);
-
-            //player two bot
-            game.CreatePlayerTwoBot(BotType.Strategic);
-
-            //player two non bot
-            // game.CreatePlayerTwo("Jane");
-            game.AllBots = true;
+            //Sign up each player
+            if (!game.AllBots)
+                RegisterPlayers(game);
+            else
+                RegisterAllBots(game);
 
 
-            while (!game.IsGameComplete()) 
+            while (!game.IsGameComplete())
             {
-                string response = "";
-                
-                if (!game.AllBots)
+                string pOneResponse = "";
+                string pTwoResponse = "";
+
+                if (game.AllBots)
                 {
-                    do
-                    {
-                        Console.WriteLine($"{game.GetPlayerOneName()} pick your object:");
-                        Console.WriteLine("(R)ock");
-                        Console.WriteLine("(P)aper");
-                        Console.WriteLine("(S)cissors");
-                        Console.WriteLine();
-                        response = Console.ReadLine();
-
-                    } while (!IsValidInput(response));
-
-
-                    Console.WriteLine($"{game.GetPlayerOneName()} has chosen: {response}");
-
-                    game.PlayerOnePickObject(PickObject(response));
+                    game.PlayerTwoPickObject(PlayerObject.Bot);
+                    game.PlayerOnePickObject(PlayerObject.Bot);
 
                 }
 
-                Console.WriteLine("Bot has Chosen...");
-                game.PlayerTwoPickObject(PlayerObject.Bot);
-                game.PlayerOnePickObject(PlayerObject.Bot);
+                if (!game.AllBots)
+                {
+
+                    pOneResponse = PlayerOneSelection(game);
+                                       
+                    pTwoResponse = PlayerTwoSelection(game, pTwoResponse);
+                }
+
+                RoundResult result = ResolveRound(game);
 
 
-                Console.WriteLine("1... 2... 3... SHOOT!");
-                
-                //Players Shoot
-                var result = game.SHOOT();
-                //Show Results to Players
-                Console.WriteLine($"Player One Chose: {result.POneShot}");
-                Console.WriteLine($"Player One Weak Against: {result.POneWeak}");
-                Console.WriteLine($"Player Two Chose: {result.PTwoShot}");
-                Console.WriteLine($"Player Two Weak Against: {result.PTwoWeak}");
-                Console.WriteLine("===================");
-                Console.WriteLine($"Winner: {result.Winner}");
-                Console.WriteLine($"Loser: {result.Loser}");
+                //Show result to bot if bot(s) need results to determine strategy
+                if (game.AllBots)
+                    game.BotViewResults(result);
 
-
-                //Show result to bot if bots need results to determine strategy
-                game.BotViewResults(result);
+                if (game.IsPlayerTwoBot())
+                    game.BotViewResults(result);
 
                 Console.WriteLine("===========================================================");
                 Console.WriteLine(game.ViewCurrentScore());
@@ -80,13 +60,160 @@ namespace Proto_RPS
             }
         }
 
+
+
+
+        private static string PlayerTwoSelection(RockPaperScissors game, string pTwoResponse)
+        {
+            if (!game.IsPlayerTwoBot())
+            {
+                pTwoResponse = PickObjectValidation(game.GetPlayerTwoName());
+
+                Console.WriteLine($"{game.GetPlayerTwoName()} has chosen: {pTwoResponse}");
+
+            }
+            else
+            {
+                Console.WriteLine($"{game.GetPlayerTwoName()} is picking object...");
+            }
+
+            if (game.IsPlayerTwoBot() && !game.AllBots)
+            {
+                game.PlayerTwoPickObject(PlayerObject.Bot);
+            }
+            else
+            {
+                game.PlayerTwoPickObject(PickObject(pTwoResponse));
+            }
+
+            return pTwoResponse;
+        }
+
+        private static string PlayerOneSelection(RockPaperScissors game)
+        {
+            string pOneResponse = PickObjectValidation(game.GetPlayerOneName());
+            Console.WriteLine($"{game.GetPlayerOneName()} has chosen: {pOneResponse}");
+
+            game.PlayerOnePickObject(PickObject(pOneResponse));
+            return pOneResponse;
+        }
+
+        private static RoundResult ResolveRound(RockPaperScissors game)
+        {
+            Console.WriteLine("1... 2... 3... SHOOT!");
+
+            //Players Shoot
+            var result = game.SHOOT();
+            //Show Results to Players
+            Console.WriteLine($"Player One Chose: {result.POneShot}");
+            Console.WriteLine($"Player One Weak Against: {result.POneWeak}");
+            Console.WriteLine($"Player Two Chose: {result.PTwoShot}");
+            Console.WriteLine($"Player Two Weak Against: {result.PTwoWeak}");
+            Console.WriteLine("===================");
+            Console.WriteLine($"Winner: {result.Winner}");
+            Console.WriteLine($"Loser: {result.Loser}");
+            return result;
+        }
+
+        private static string PickObjectValidation(string playerName)
+        {
+            string response;
+            do
+            {
+                Console.WriteLine($"{playerName} pick your object:");
+                Console.WriteLine("(R)ock");
+                Console.WriteLine("(P)aper");
+                Console.WriteLine("(S)cissors");
+                Console.WriteLine();
+                response = Console.ReadLine();
+
+            } while (!IsValidInput(response));
+
+            return response;
+        }
+
+        private static void RegisterPlayers(RockPaperScissors game)
+        {
+        
+
+                string playerOneName = "";
+                string playerTwoName = "";
+
+
+                do
+                {
+
+                    Console.WriteLine("Player One... Enter your name:");
+                    Console.Write("=>");
+                    playerOneName = Console.ReadLine();
+
+
+                } while (!NameIsValid(playerOneName));
+
+                game.CreatePlayerOne(playerOneName);
+
+
+
+                do
+                {
+                    BotMessage();
+                    
+                    Console.WriteLine("Player Two... Enter your name:");
+                    Console.Write("=>");
+
+                    playerTwoName = Console.ReadLine();
+
+
+                } while (!NameIsValid(playerTwoName));
+
+
+
+            if (playerTwoName.Equals("SBOT")) 
+            {
+                game.CreatePlayerTwoBot(BotType.Random);
+                return;
+            }
+
+
+
+            if (playerTwoName.Equals("RBOT")) 
+            {
+                game.CreatePlayerTwoBot(BotType.Random);
+                return;
+            }
+            
+
+            
+            game.CreatePlayerTwo(playerTwoName);
+
+        }
+
+        private static void BotMessage()
+        {
+            Console.WriteLine("//===================================//");
+            Console.WriteLine("    To make Player Two a bot type:");
+            Console.WriteLine("     SBOT");
+            Console.WriteLine("     RBOT");
+            Console.WriteLine("//===================================//");
+        }
+
         public static bool IsValidInput(string inputResponse) 
         {
-
-            inputResponse = inputResponse.ToUpper();
-
             bool IsValid = false;
 
+            if (string.IsNullOrEmpty(inputResponse)) 
+            {
+                Console.WriteLine("INVALID INPUT - Please choose one of these value:");
+                Console.WriteLine("R , P , S");
+                
+                return false;
+            }
+            
+
+
+
+            inputResponse = inputResponse.ToUpper();
+            
             if (inputResponse[0].ToString().Equals("R"))
                 IsValid = true;
 
@@ -105,9 +232,13 @@ namespace Proto_RPS
             return IsValid;
         }
 
+
         public static PlayerObject PickObject(string pick) 
         {
-            switch (pick)
+
+            string choice = pick.ToUpper();
+
+            switch (choice)
             {
                 case "R":
                     return PlayerObject.Rock;
@@ -125,6 +256,25 @@ namespace Proto_RPS
                     return PlayerObject.Rock;
                     
             }
+        }
+
+        public static bool NameIsValid(string playerName) 
+        {
+            if (string.IsNullOrEmpty(playerName)) 
+            {
+                Console.WriteLine("You must enter something.");
+                return false;
+            }
+                       
+
+
+            return true;
+        }
+
+        public static void RegisterAllBots(RockPaperScissors game) 
+        {
+            game.CreatePlayerOneBot(BotType.Random);
+            game.CreatePlayerTwoBot(BotType.Strategic);
         }
     }
 }

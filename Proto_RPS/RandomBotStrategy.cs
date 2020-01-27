@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Proto_RPS
 {
-    class RandomBotStrategy : IBotStrategy
+    public class RandomBotStrategy : IBotStrategy
     {
         public IPlayerObject RunBotStrategy()
         {

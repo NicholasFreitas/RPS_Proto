@@ -6,7 +6,7 @@ namespace Proto_RPS
 {
 
 
-    class RockPaperScissors : IGameRockPaperScissors
+    public class RockPaperScissors : IGameRockPaperScissors
     {
         public Configuration GameConfig {get;set;}
 
@@ -102,6 +102,11 @@ namespace Proto_RPS
             return PlayerTwo.GetPlayerName();
         }
 
+        public bool IsPlayerTwoBot() 
+        {
+            return PlayerTwo.IsBot();
+        }
+
         /// <summary>
         /// Compares the player objects against their weaknesses
         /// </summary>
@@ -147,8 +152,9 @@ namespace Proto_RPS
 
         public void BotViewResults(RoundResult result) 
         {
-            PlayerTwo.ViewResult(result);
-            PlayerOne.ViewResult(result);
+                PlayerTwo.ViewResult(result);
+  
+                PlayerOne.ViewResult(result);
         }
 
         public string ViewCurrentScore() 

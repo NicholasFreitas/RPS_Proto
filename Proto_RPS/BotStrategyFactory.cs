@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Proto_RPS
 {
-    class BotStrategyFactory
+    public class BotStrategyFactory
     {
         public static IBotStrategy GetBot(BotType botType) 
         {

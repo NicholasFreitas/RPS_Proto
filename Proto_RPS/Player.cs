@@ -63,7 +63,17 @@ namespace Proto_RPS
         //Bot Method
         public void ViewResult(RoundResult result) 
         {
-            BotStrategy.ViewResults(result);
+            if(BotStrategy != null)
+                BotStrategy.ViewResults(result);
+        }
+
+        //Bot Method
+        public bool IsBot() 
+        {
+            if (BotStrategy == null)
+                return false;
+
+            return true;
         }
     }
 }
