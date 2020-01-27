@@ -10,44 +10,51 @@ namespace Proto_RPS
             var game = new RockPaperScissors();
             
             /* Game configs */
-            game.GameConfig.FirstToIntWins = 3;
+            game.GameConfig.FirstToIntWins = 10;
 
             /* Create players */
 
             //Player one
-            game.CreatePlayerOne("John");
+            //game.CreatePlayerOne("John");
+
+            game.CreatePlayerOneBot(BotType.Random);
 
             //player two bot
-            game.CreatePlayerTwoBot(BotType.Random);
+            game.CreatePlayerTwoBot(BotType.Strategic);
 
             //player two non bot
             // game.CreatePlayerTwo("Jane");
-
+            game.AllBots = true;
 
 
             while (!game.IsGameComplete()) 
             {
                 string response = "";
-
-                do
+                
+                if (!game.AllBots)
                 {
-                    Console.WriteLine($"{game.GetPlayerOneName()} pick your object:");
-                    Console.WriteLine("(R)ock");
-                    Console.WriteLine("(P)aper");
-                    Console.WriteLine("(S)cissors");
-                    Console.WriteLine();
-                    response = Console.ReadLine();
-                
-                } while (!IsValidInput(response));
+                    do
+                    {
+                        Console.WriteLine($"{game.GetPlayerOneName()} pick your object:");
+                        Console.WriteLine("(R)ock");
+                        Console.WriteLine("(P)aper");
+                        Console.WriteLine("(S)cissors");
+                        Console.WriteLine();
+                        response = Console.ReadLine();
+
+                    } while (!IsValidInput(response));
 
 
-                Console.WriteLine($"{game.GetPlayerOneName()} has chosen: {response}");
-                
-                game.PlayerOnePickObject(PickObject(response));
+                    Console.WriteLine($"{game.GetPlayerOneName()} has chosen: {response}");
 
+                    game.PlayerOnePickObject(PickObject(response));
+
+                }
 
                 Console.WriteLine("Bot has Chosen...");
                 game.PlayerTwoPickObject(PlayerObject.Bot);
+                game.PlayerOnePickObject(PlayerObject.Bot);
+
 
                 Console.WriteLine("1... 2... 3... SHOOT!");
                 
@@ -63,7 +70,7 @@ namespace Proto_RPS
                 Console.WriteLine($"Loser: {result.Loser}");
 
 
-                //Show result to bot
+                //Show result to bot if bots need results to determine strategy
                 game.BotViewResults(result);
 
                 Console.WriteLine("===========================================================");
@@ -78,13 +85,6 @@ namespace Proto_RPS
 
             inputResponse = inputResponse.ToUpper();
 
-            //if (string.IsNullOrEmpty(inputResponse))
-            //    return false;
-            //
-            //int parseResult = 0;
-            //if (int.TryParse(inputResponse[0].ToString(), out parseResult))
-            //    return false;
-
             bool IsValid = false;
 
             if (inputResponse[0].ToString().Equals("R"))
@@ -94,9 +94,6 @@ namespace Proto_RPS
                 IsValid = true;
 
             if (inputResponse[0].ToString().Equals("S"))
-                IsValid = true;
-
-            if (inputResponse[0].ToString().Equals("B"))
                 IsValid = true;
 
             if (!IsValid) 

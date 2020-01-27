@@ -19,6 +19,8 @@ namespace Proto_RPS
         int POneScore = 0;
         int PTwoScore = 0;
         
+        public bool AllBots = false;
+
         public RockPaperScissors()
         {
             GameResult = new GameResult();
@@ -34,6 +36,18 @@ namespace Proto_RPS
         public void CreatePlayerTwo(string name) 
         {
             PlayerTwo = new Player(name);
+        }
+
+        public void CreatePlayerOneBot(BotType botType)
+        {
+
+            var botStrat = BotStrategyFactory.GetBot(botType);
+
+            var botName = $"{botType.ToString()}_bot";
+
+
+            PlayerOne = new Player(botName, botStrat);
+
         }
 
         public void CreatePlayerTwoBot(BotType botType)
@@ -52,13 +66,15 @@ namespace Proto_RPS
         {
 
             if (playerObject.Equals(PlayerObject.Bot))
-                throw new ArgumentException("PlayerObject cannot be Bot for player.");
-
+            {
+                PlayerOne.SelectObject();
+                return;
+            }
 
             PlayerOne.SelectObject(
                 PlayerObjectFactory.SelectPlayerObject(playerObject)
             );
-        
+
         }
 
         public void PlayerTwoPickObject(PlayerObject playerObject)
@@ -132,6 +148,7 @@ namespace Proto_RPS
         public void BotViewResults(RoundResult result) 
         {
             PlayerTwo.ViewResult(result);
+            PlayerOne.ViewResult(result);
         }
 
         public string ViewCurrentScore() 
@@ -184,7 +201,6 @@ namespace Proto_RPS
         public string POneWeak { get; set; }
 
         public string PTwoWeak { get; set; }
-    
     }
 
     public class GameResult 

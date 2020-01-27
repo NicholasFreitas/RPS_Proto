@@ -9,7 +9,7 @@ namespace Proto_RPS
         Rock,
         Paper,
         Scissors,
-        Bot
+        Bot     //Should never be an option for a human player
     }
 
     class PlayerObjectFactory

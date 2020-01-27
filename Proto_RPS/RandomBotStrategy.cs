@@ -8,6 +8,8 @@ namespace Proto_RPS
     {
         public IPlayerObject RunBotStrategy()
         {
+            Console.WriteLine("DEBUG RANDOM BOT CALLED");
+
             //We trim the last entry, reserved for bot object selection.
             int botReserved = 1;
 
