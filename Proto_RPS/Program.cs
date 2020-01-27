@@ -11,99 +11,123 @@ namespace Proto_RPS
             
             /* Game configs */
             game.GameConfig.FirstToIntWins = 3;
-            
 
             /* Create players */
-            
+
             //Player one
             game.CreatePlayerOne("John");
-            
+
             //player two bot
             game.CreatePlayerTwoBot(BotType.Random);
 
             //player two non bot
             // game.CreatePlayerTwo("Jane");
-                       
-            /* Begin round  */
-            //players pick
-            game.PlayerOnePickObject(PlayerObject.Scissors);
-
-            game.PlayerTwoPickObject(PlayerObject.Bot);
 
 
 
-            //Players Shoot
-            var result = game.SHOOT();
+            while (!game.IsGameComplete()) 
+            {
+                string response = "";
+
+                do
+                {
+                    Console.WriteLine($"{game.GetPlayerOneName()} pick your object:");
+                    Console.WriteLine("(R)ock");
+                    Console.WriteLine("(P)aper");
+                    Console.WriteLine("(S)cissors");
+                    Console.WriteLine();
+                    response = Console.ReadLine();
+                
+                } while (!IsValidInput(response));
 
 
-            //Show Results to Players
-            Console.WriteLine($"Player One Chose: {result.POneShot}");
-            Console.WriteLine($"Player One Weak Against: {result.POneWeak}");
-            Console.WriteLine($"Player Two Chose: {result.PTwoShot}");
-            Console.WriteLine($"Player Two Weak Against: {result.PTwoWeak}");
-            Console.WriteLine("===================");
-            Console.WriteLine($"Winner: {result.Winner}");
-            Console.WriteLine($"Loser: {result.Loser}");
+                Console.WriteLine($"{game.GetPlayerOneName()} has chosen: {response}");
+                
+                game.PlayerOnePickObject(PickObject(response));
 
 
-            //Round Result
+                Console.WriteLine("Bot has Chosen...");
+                game.PlayerTwoPickObject(PlayerObject.Bot);
+
+                Console.WriteLine("1... 2... 3... SHOOT!");
+                
+                //Players Shoot
+                var result = game.SHOOT();
+                //Show Results to Players
+                Console.WriteLine($"Player One Chose: {result.POneShot}");
+                Console.WriteLine($"Player One Weak Against: {result.POneWeak}");
+                Console.WriteLine($"Player Two Chose: {result.PTwoShot}");
+                Console.WriteLine($"Player Two Weak Against: {result.PTwoWeak}");
+                Console.WriteLine("===================");
+                Console.WriteLine($"Winner: {result.Winner}");
+                Console.WriteLine($"Loser: {result.Loser}");
 
 
-            
+                //Show result to bot
+                game.BotViewResults(result);
 
+                Console.WriteLine("===========================================================");
+                Console.WriteLine(game.ViewCurrentScore());
+                Console.WriteLine("===========================================================");
 
-            
+            }
+        }
 
-                                                  
+        public static bool IsValidInput(string inputResponse) 
+        {
 
-            //assign object ot player one
-            //player.SelectObject(playerObject);
+            inputResponse = inputResponse.ToUpper();
 
+            //if (string.IsNullOrEmpty(inputResponse))
+            //    return false;
+            //
+            //int parseResult = 0;
+            //if (int.TryParse(inputResponse[0].ToString(), out parseResult))
+            //    return false;
 
+            bool IsValid = false;
 
+            if (inputResponse[0].ToString().Equals("R"))
+                IsValid = true;
 
-            //player one "plays" their object
-            //Console.WriteLine($"Player One has: {player.Shoot()}");
-                                                     
+            if(inputResponse[0].ToString().Equals("P"))
+                IsValid = true;
 
+            if (inputResponse[0].ToString().Equals("S"))
+                IsValid = true;
 
+            if (inputResponse[0].ToString().Equals("B"))
+                IsValid = true;
 
+            if (!IsValid) 
+            {
+                Console.WriteLine("INVALID INPUT - Please choose one of these value:");
+                Console.WriteLine("R , P , S");
+            }            
 
-            ////Player Two
-            //var playerTwo = new Player();
+            return IsValid;
+        }
 
-            //playerTwo.SetPlayerName("Alex");
+        public static PlayerObject PickObject(string pick) 
+        {
+            switch (pick)
+            {
+                case "R":
+                    return PlayerObject.Rock;
 
-            //var playerTwoObject = PlayerObjectFactory.SelectPlayerObject(PlayerObject.Paper);
+                case "P":
+                    return PlayerObject.Paper;
 
-            //playerTwo.SelectObject(playerTwoObject);
+                case "S":
+                    return PlayerObject.Scissors;
 
-            //Console.WriteLine($"Player Two has: {playerTwo.Shoot()}");
-            
-            //var result = false;
+                case "B":
+                    return PlayerObject.Bot;
 
-            //if (player.Shoot().Equals(playerTwo.Weakness())) 
-            //{
-            //    Console.WriteLine($"Player One's {player.Shoot()} defeats Player Two's {playerTwo.Shoot()}");
-
-            //    Console.WriteLine("Player One Wins");
-            //    result = true;
-            //}
-
-            //if (playerTwo.Shoot().Equals(player.Weakness())) 
-            //{
-            //    Console.WriteLine($"Player Two's {playerTwo.Shoot()} defeats Player One's {player.Shoot()}");
-
-            //    Console.WriteLine("Player Two Wins");
-            //    result = true;
-            //}
-
-            //if (!result) 
-            //{
-            //    Console.WriteLine("Draw!");
-            //}
-
-
+                default:
+                    return PlayerObject.Rock;
+                    
+            }
         }
     }
 }

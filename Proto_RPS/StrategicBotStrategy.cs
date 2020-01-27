@@ -6,10 +6,17 @@ namespace Proto_RPS
 {
     class StrategicBotStrategy : IBotStrategy
     {
+        bool IsFirstTurn = true;
+
+        RoundResult PreviousRoundResults;
 
         public IPlayerObject RunBotStrategy()
         {
+
             //First choice is random.
+
+
+            //bot then assesses results.
 
 
 
@@ -20,7 +27,7 @@ namespace Proto_RPS
 
         public void ViewResults(RoundResult result)
         {
-            throw new NotImplementedException();
+            PreviousRoundResults = result;
         }
     }
 }

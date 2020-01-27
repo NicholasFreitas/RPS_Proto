@@ -13,10 +13,15 @@ namespace Proto_RPS
         private Player PlayerOne { get; set; }
 
         private Player PlayerTwo { get; set; }
-        
+
+        GameResult GameResult { get; set; }
+
+        int POneScore = 0;
+        int PTwoScore = 0;
         
         public RockPaperScissors()
         {
+            GameResult = new GameResult();
             GameConfig = new Configuration();
             GameConfig.FirstToIntWins = 3;
         }
@@ -45,6 +50,11 @@ namespace Proto_RPS
 
         public void PlayerOnePickObject(PlayerObject playerObject)
         {
+
+            if (playerObject.Equals(PlayerObject.Bot))
+                throw new ArgumentException("PlayerObject cannot be Bot for player.");
+
+
             PlayerOne.SelectObject(
                 PlayerObjectFactory.SelectPlayerObject(playerObject)
             );
@@ -66,6 +76,15 @@ namespace Proto_RPS
             );
         }
 
+        public string GetPlayerOneName() 
+        {
+           return PlayerOne.GetPlayerName();
+        }
+
+        public string GetPlayerTwoName()
+        {
+            return PlayerTwo.GetPlayerName();
+        }
 
         /// <summary>
         /// Compares the player objects against their weaknesses
@@ -73,27 +92,33 @@ namespace Proto_RPS
         /// <returns>All round information for display</returns>
         public RoundResult SHOOT()
         {
-
+            //used for showing results
             var result = new RoundResult();
-
+                        
             result.POneShot = PlayerOne.Shoot();
             result.PTwoShot = PlayerTwo.Shoot();
 
             result.POneWeak = PlayerOne.Weakness();
             result.PTwoWeak = PlayerTwo.Weakness();
-
-
-
+                       
 
             if (PlayerOne.Shoot().Equals(PlayerTwo.Weakness()))
             {
+                POneScore++;
+                
                 result.Winner = PlayerOne.GetPlayerName();
+                               
                 result.Loser = PlayerTwo.GetPlayerName();
+            
             }
             else if (PlayerTwo.Shoot().Equals(PlayerOne.Weakness()))
             {
+                PTwoScore++;
+
                 result.Winner = PlayerTwo.GetPlayerName();
+            
                 result.Loser = PlayerOne.GetPlayerName();
+            
             }
             else 
             {
@@ -103,6 +128,47 @@ namespace Proto_RPS
 
             return result;
         }
+
+        public void BotViewResults(RoundResult result) 
+        {
+            PlayerTwo.ViewResult(result);
+        }
+
+        public string ViewCurrentScore() 
+        {
+            return $"Player One[{PlayerOne.GetPlayerName()}]:{POneScore} --- Player Two[{PlayerTwo.GetPlayerName()}]:{PTwoScore}";
+        }
+
+        public bool IsGameComplete() 
+        {
+            if (POneScore == GameConfig.FirstToIntWins) 
+            {
+
+                GameResult.GameWinner = PlayerOne.GetPlayerName();
+                GameResult.GameLoser = PlayerTwo.GetPlayerName();
+
+                return true;
+            }
+
+
+            if (PTwoScore == GameConfig.FirstToIntWins) 
+            {
+
+                GameResult.GameWinner = PlayerTwo.GetPlayerName();
+                GameResult.GameLoser = PlayerOne.GetPlayerName();
+
+                return true;
+            }
+            
+
+            return false;
+        }
+
+        public GameResult GameResults() 
+        {
+            return GameResult;
+        }
+
     }
 
     public class RoundResult
@@ -120,4 +186,14 @@ namespace Proto_RPS
         public string PTwoWeak { get; set; }
     
     }
+
+    public class GameResult 
+    {
+        public string GameWinner { get; set; }
+        public string GameLoser { get; set; }
+        
+        public string FinalScore { get; set; }
+    }
+
+
 }
