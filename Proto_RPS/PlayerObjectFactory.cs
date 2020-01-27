@@ -13,7 +13,7 @@ namespace Proto_RPS
 
     class PlayerObjectFactory
     {
-        public static IPlayerObject GetPlayerObject(PlayerObject playerObject) 
+        public static IPlayerObject SelectPlayerObject(PlayerObject playerObject) 
         {
             switch (playerObject)
             {

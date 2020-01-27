@@ -10,6 +10,25 @@ namespace Proto_RPS
 
         IPlayerObject PlayerObject;
 
+        IBotStrategy BotStrategy;
+
+        int Wins = 0;
+
+        public Player()
+        {
+        }
+
+        public Player(string name)
+        {
+            Name = name;
+        }
+
+        public Player(string name, IBotStrategy botStrategy)
+        {
+            Name = name;
+            BotStrategy = botStrategy;
+        }
+
         public void SetPlayerName(string playerName) 
         {
             Name = playerName;
@@ -28,6 +47,11 @@ namespace Proto_RPS
         public string Weakness() 
         {
             return PlayerObject.ShowWeakness();
+        }
+
+        public void HasWon() 
+        {
+            Wins++;
         }
 
     }

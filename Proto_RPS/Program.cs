@@ -6,6 +6,17 @@ namespace Proto_RPS
     {
         static void Main(string[] args)
         {
+
+            var game = new RockPaperScissors();
+            
+            //Configure Game
+            game.GameConfig.FirstToIntWins = 3;
+
+
+
+
+
+
             //Player One
             var player = new Player();
 
@@ -13,7 +24,7 @@ namespace Proto_RPS
             player.SetPlayerName("John");
 
             //Plyaer one picks their object
-            var playerObject = PlayerObjectFactory.GetPlayerObject(PlayerObject.Rock);
+            var playerObject = PlayerObjectFactory.SelectPlayerObject(PlayerObject.Rock);
 
             //assign object ot player one
             player.SelectObject(playerObject);
@@ -30,7 +41,7 @@ namespace Proto_RPS
 
             playerTwo.SetPlayerName("Alex");
 
-            var playerTwoObject = PlayerObjectFactory.GetPlayerObject(PlayerObject.Paper);
+            var playerTwoObject = PlayerObjectFactory.SelectPlayerObject(PlayerObject.Paper);
 
             playerTwo.SelectObject(playerTwoObject);
 
