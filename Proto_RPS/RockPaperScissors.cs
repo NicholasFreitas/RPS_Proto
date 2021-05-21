@@ -5,7 +5,7 @@ using System.Text;
 namespace Proto_RPS
 {
 
-
+    //TODO: 005 This class isn't cohesive. It's responsible for too much. It holds the game flow, configs and creates players. Too many responsibilities that don't delong to it.
     public class RockPaperScissors : IGameRockPaperScissors
     {
         public Configuration GameConfig {get;set;}

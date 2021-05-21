@@ -6530,24 +6530,27 @@
   },
   "packageFolders": {
     "C:\\Users\\Nick\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\RockPaperScisoors\\Prototype\\RockPaperScissors.Test\\RockPaperScissors.Test.csproj",
+      "projectUniqueName": "C:\\Users\\Nick\\Source\\Repos\\NicholasFreitas\\RPS_Proto\\RockPaperScissors.Test\\RockPaperScissors.Test.csproj",
       "projectName": "RockPaperScissors.Test",
-      "projectPath": "D:\\RockPaperScisoors\\Prototype\\RockPaperScissors.Test\\RockPaperScissors.Test.csproj",
+      "projectPath": "C:\\Users\\Nick\\Source\\Repos\\NicholasFreitas\\RPS_Proto\\RockPaperScissors.Test\\RockPaperScissors.Test.csproj",
       "packagesPath": "C:\\Users\\Nick\\.nuget\\packages\\",
-      "outputPath": "D:\\RockPaperScisoors\\Prototype\\RockPaperScissors.Test\\obj\\",
+      "outputPath": "C:\\Users\\Nick\\Source\\Repos\\NicholasFreitas\\RPS_Proto\\RockPaperScissors.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\Nick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -6560,9 +6563,10 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\RockPaperScisoors\\Prototype\\Proto_RPS\\Proto_RPS.csproj": {
-              "projectPath": "D:\\RockPaperScisoors\\Prototype\\Proto_RPS\\Proto_RPS.csproj"
+            "C:\\Users\\Nick\\Source\\Repos\\NicholasFreitas\\RPS_Proto\\Proto_RPS\\Proto_RPS.csproj": {
+              "projectPath": "C:\\Users\\Nick\\Source\\Repos\\NicholasFreitas\\RPS_Proto\\Proto_RPS\\Proto_RPS.csproj"
             }
           }
         }
@@ -6575,6 +6579,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
@@ -6608,7 +6613,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

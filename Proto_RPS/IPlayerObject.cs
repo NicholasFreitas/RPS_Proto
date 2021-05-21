@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Proto_RPS
 {
+    //TODO: 003 To ValueType
     public interface IPlayerObject
     {
         string ShowWeakness();

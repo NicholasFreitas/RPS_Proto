@@ -4,6 +4,8 @@ using System.Text;
 
 namespace Proto_RPS
 {
+
+    //TODO: 004 Refactor to include player object as a ValueObject.
     public class Player
     {
         string Name;

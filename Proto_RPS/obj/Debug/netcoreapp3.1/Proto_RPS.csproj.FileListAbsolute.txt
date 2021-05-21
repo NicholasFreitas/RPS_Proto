@@ -9,3 +9,16 @@ D:\RockPaperScisoors\Prototype\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.Assem
 D:\RockPaperScisoors\Prototype\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.AssemblyInfo.cs
 D:\RockPaperScisoors\Prototype\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.dll
 D:\RockPaperScisoors\Prototype\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.pdb
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\Proto_RPS\bin\Debug\netcoreapp3.1\Proto_RPS.exe
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\Proto_RPS\bin\Debug\netcoreapp3.1\Proto_RPS.deps.json
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\Proto_RPS\bin\Debug\netcoreapp3.1\Proto_RPS.runtimeconfig.json
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\Proto_RPS\bin\Debug\netcoreapp3.1\Proto_RPS.runtimeconfig.dev.json
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\Proto_RPS\bin\Debug\netcoreapp3.1\Proto_RPS.dll
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\Proto_RPS\bin\Debug\netcoreapp3.1\Proto_RPS.pdb
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.csprojAssemblyReference.cache
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.AssemblyInfoInputs.cache
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.AssemblyInfo.cs
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.csproj.CoreCompileInputs.cache
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.dll
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.pdb
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\Proto_RPS\obj\Debug\netcoreapp3.1\Proto_RPS.genruntimeconfig.cache
