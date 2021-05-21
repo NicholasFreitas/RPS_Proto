@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Proto_RPS.RPSGame.Game;
+using Proto_RPS.RPSGame.ShootObjects;
+using System;
 
 namespace Proto_RPS
 {
@@ -14,10 +16,10 @@ namespace Proto_RPS
             var game = new RockPaperScissors();
 
             /* Game configs */
-            game.GameConfig.FirstToIntWins = 3;
+            game.GameConfig.FirstToRoundWins = 3;
 
             //Sign up each player
-            if (!game.AllBots)
+            if (!game._allBots)
                 RegisterPlayers(game);
             else
                 RegisterAllBots(game);
@@ -25,18 +27,18 @@ namespace Proto_RPS
             //TODO: 002 Gameloop -> Need to refactor.
             while (!game.IsGameComplete())
             {
-                string pOneResponse = "";
-                string pTwoResponse = "";
+                var pOneResponse = "";
+                var pTwoResponse = "";
 
                 //TODO: 006 Bots shouldn't have separate logic. They're players too. Once we configure them they should follow same flow as player.
-                if (game.AllBots)
+                if (game._allBots)
                 {
                     game.PlayerTwoPickObject(PlayerObject.Bot);
                     game.PlayerOnePickObject(PlayerObject.Bot);
 
                 }
 
-                if (!game.AllBots)
+                if (!game._allBots)
                 {
 
                     pOneResponse = PlayerOneSelection(game);
@@ -44,15 +46,19 @@ namespace Proto_RPS
                     pTwoResponse = PlayerTwoSelection(game, pTwoResponse);
                 }
 
-                RoundResult result = ResolveRound(game);
+                var result = ResolveRound(game);
 
-
-                //Show result to bot if bot(s) need results to determine strategy
-                if (game.AllBots)
+                if (game._allBots)
+                {
                     game.BotViewResults(result);
+                }
+
 
                 if (game.IsPlayerTwoBot())
+                {
                     game.BotViewResults(result);
+                }
+
 
                 Console.WriteLine("===========================================================");
                 Console.WriteLine(game.ViewCurrentScore());
@@ -78,7 +84,7 @@ namespace Proto_RPS
                 Console.WriteLine($"{game.GetPlayerTwoName()} is picking object...");
             }
 
-            if (game.IsPlayerTwoBot() && !game.AllBots)
+            if (game.IsPlayerTwoBot() && !game._allBots)
             {
                 game.PlayerTwoPickObject(PlayerObject.Bot);
             }
@@ -210,19 +216,22 @@ namespace Proto_RPS
                 return false;
             }
 
-
-
-
             inputResponse = inputResponse.ToUpper();
 
             if (inputResponse[0].ToString().Equals("R"))
+            {
                 IsValid = true;
+            }
 
             if (inputResponse[0].ToString().Equals("P"))
+            {
                 IsValid = true;
+            }
 
             if (inputResponse[0].ToString().Equals("S"))
+            {
                 IsValid = true;
+            }
 
             if (!IsValid)
             {
@@ -239,24 +248,14 @@ namespace Proto_RPS
 
             string choice = pick.ToUpper();
 
-            switch (choice)
+            return choice switch
             {
-                case "R":
-                    return PlayerObject.Rock;
-
-                case "P":
-                    return PlayerObject.Paper;
-
-                case "S":
-                    return PlayerObject.Scissors;
-
-                case "B":
-                    return PlayerObject.Bot;
-
-                default:
-                    return PlayerObject.Rock;
-
-            }
+                "R" => PlayerObject.Rock,
+                "P" => PlayerObject.Paper,
+                "S" => PlayerObject.Scissors,
+                "B" => PlayerObject.Bot,
+                _ => PlayerObject.Rock,
+            };
         }
 
         public static bool NameIsValid(string playerName)
@@ -266,8 +265,6 @@ namespace Proto_RPS
                 Console.WriteLine("You must enter something.");
                 return false;
             }
-
-
 
             return true;
         }

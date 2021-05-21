@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Proto_RPS
+namespace Proto_RPS.RPSGame.ShootObjects
 {
     class Scissors : IPlayerObject
     {
-        private PlayerObject Weakness = PlayerObject.Rock;
+        private PlayerObject _weakness = PlayerObject.Rock;
         public string ShowWeakness()
         {
-            return Weakness.ToString();
+            return _weakness.ToString();
         }
     }
 }

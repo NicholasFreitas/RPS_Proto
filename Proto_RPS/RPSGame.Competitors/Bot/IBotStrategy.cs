@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Proto_RPS.RPSGame.Game;
+using Proto_RPS.RPSGame.ShootObjects;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Proto_RPS
+namespace Proto_RPS.RPSGame.Competitors.Bot
 {
     public interface IBotStrategy
     {
