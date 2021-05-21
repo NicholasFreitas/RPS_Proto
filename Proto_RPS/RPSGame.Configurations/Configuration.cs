@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Proto_RPS
+namespace Proto_RPS.RPSGame.Configurations
 {
     public class Configuration
     {
         /// <summary>
         /// Default is 3
         /// </summary>
-        public int FirstToIntWins { get; set; } = 3;
+        public int FirstToRoundWins { get; set; } = 3;
 
     }
 }

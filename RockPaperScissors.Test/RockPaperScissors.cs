@@ -1,6 +1,5 @@
 using System;
 using Xunit;
-using Proto_RPS;
 
 namespace RockPaperScissors.Test
 {
@@ -21,7 +20,7 @@ namespace RockPaperScissors.Test
             var game = new Proto_RPS.RockPaperScissors();
                         
 
-            Assert.True(game.GameConfig.FirstToIntWins == 3, "Default is not set.");
+            Assert.True(game.GameConfig.FirstToRoundWins == 3, "Default is not set.");
 
         }
 
