@@ -7,7 +7,6 @@ namespace Proto_RPS
       I'm also going to diagram out the game flow. Maybe this will help me with design.
      
      Initial observations.
-     - The solution structure is trash, I need to fix that. My objects should have a place to live and be.
      - The Program class is not cohesive, I need to make it more cohesive.
      - I'm really not eager to use any external libraries for visualizing things... but I think I'm going to put the "graphics" in it's own service. I think it'll clean up the code a bit.
      - Code styling defintely needs some clean up. The code is super busy.
