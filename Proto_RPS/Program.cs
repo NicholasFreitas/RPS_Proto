@@ -2,26 +2,6 @@
 
 namespace Proto_RPS
 {
-    //TODO: 000 Large Refactor
-    /*I've learned a lot since I've build this project initially. Let's see if we can re-organize this to be... sensible.
-      I'm also going to diagram out the game flow. Maybe this will help me with design.
-     
-     Initial observations.
-     - The Program class is not cohesive, I need to make it more cohesive.
-     - I'm really not eager to use any external libraries for visualizing things... but I think I'm going to put the "graphics" in it's own service. I think it'll clean up the code a bit.
-     - Code styling defintely needs some clean up. The code is super busy.
-     - A lot of config logic should be encapulated in a manager or service or soemthing... it's messy
-        
-     This is iniital... gonna go through code and make notes.
-    - Rock, Paper and Scissors on a second look, seems like they can be turned into value objects. I think this would simplify the game logic... I THINK... :D
-    - The strategic bot design is... weird... I mean that AI itself has a logic but I wonder if we could simplify the bot design.
-    - Rethink Bot design... maybe rename some of the methods... the design should include a "step" for implementing HOW the bot solves a problem.
-    - I definitely don't hate IGameRockPaperScissors. This interface is clear, well to me. It lays out the game "steps" clearly.
-
-    - The unit testing is weird... but to be honest, I don't know enough about testing to say it's poorly done. I'll save it for last and do some reading.
-
-     */
-
     class Program
     {
         static void Main(string[] args)
