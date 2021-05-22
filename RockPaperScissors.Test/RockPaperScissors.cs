@@ -1,3 +1,5 @@
+using Proto_RPS.RPSGame.Competitors.Bot;
+using Proto_RPS.RPSGame.Game;
 using System;
 using Xunit;
 
@@ -9,7 +11,7 @@ namespace RockPaperScissors.Test
         [Fact]
         public void GameCreation() 
         {
-            var game = new Proto_RPS.RockPaperScissors();
+            var game = new Proto_RPS.RPSGame.Game.RockPaperScissors();
 
             Assert.NotNull(game);
         }
@@ -17,7 +19,7 @@ namespace RockPaperScissors.Test
         [Fact]
         public void DefaultConfigConfigured() 
         {
-            var game = new Proto_RPS.RockPaperScissors();
+            var game = new Proto_RPS.RPSGame.Game.RockPaperScissors();
                         
 
             Assert.True(game.GameConfig.FirstToRoundWins == 3, "Default is not set.");
@@ -27,7 +29,7 @@ namespace RockPaperScissors.Test
         [Fact]
         public void ValidPlayerCreation() 
         {
-            var game = new Proto_RPS.RockPaperScissors();
+            var game = new Proto_RPS.RPSGame.Game.RockPaperScissors();
 
             game.CreatePlayerOne("TESTING");
 
