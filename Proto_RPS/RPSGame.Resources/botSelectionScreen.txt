@@ -1,0 +1,26 @@
+﻿* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+ 
+ Select Your Opponents:
+ 
+ 
+ - (R)andom Bot : Will remember previous plays
+
+ - (S)trategic Bot : Will play completely randomly
+
+ Press R or S to select your bot.
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 

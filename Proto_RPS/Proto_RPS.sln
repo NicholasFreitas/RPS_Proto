@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proto_RPS", "Proto_RPS.csproj", "{D25648C9-BC26-4FAA-BA46-EA9C0279F743}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proto_RPS", "Proto_RPS.csproj", "{D25648C9-BC26-4FAA-BA46-EA9C0279F743}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissors.Test", "..\RockPaperScissors.Test\RockPaperScissors.Test.csproj", "{9CB9BE7D-B13E-4838-95AC-3061FD2007AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockPaperScissors.Test", "..\RockPaperScissors.Test\RockPaperScissors.Test.csproj", "{9CB9BE7D-B13E-4838-95AC-3061FD2007AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPSDevelopment", "..\RPSDevelopment\RPSDevelopment.csproj", "{E2FE5598-261C-4F8C-BF74-613F0DDD2C07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9CB9BE7D-B13E-4838-95AC-3061FD2007AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CB9BE7D-B13E-4838-95AC-3061FD2007AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CB9BE7D-B13E-4838-95AC-3061FD2007AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2FE5598-261C-4F8C-BF74-613F0DDD2C07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2FE5598-261C-4F8C-BF74-613F0DDD2C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2FE5598-261C-4F8C-BF74-613F0DDD2C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2FE5598-261C-4F8C-BF74-613F0DDD2C07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

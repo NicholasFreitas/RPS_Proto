@@ -197,3 +197,7 @@ C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\RockPaperScissors.Test\obj\
 C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\RockPaperScissors.Test\obj\Debug\netcoreapp3.1\RockPaperScissors.Test.dll
 C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\RockPaperScissors.Test\obj\Debug\netcoreapp3.1\RockPaperScissors.Test.pdb
 C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\RockPaperScissors.Test\obj\Debug\netcoreapp3.1\RockPaperScissors.Test.genruntimeconfig.cache
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\RockPaperScissors.Test\bin\Debug\netcoreapp3.1\RPSGame.Resources\botSelectionScreen.txt
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\RockPaperScissors.Test\bin\Debug\netcoreapp3.1\RPSGame.Resources\registerScreen.txt
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\RockPaperScissors.Test\bin\Debug\netcoreapp3.1\RPSGame.Resources\showPlayersScreen.txt
+C:\Users\Nick\Source\Repos\NicholasFreitas\RPS_Proto\RockPaperScissors.Test\bin\Debug\netcoreapp3.1\RPSGame.Resources\titleScreen.txt

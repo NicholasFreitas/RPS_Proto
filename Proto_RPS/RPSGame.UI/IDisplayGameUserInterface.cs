@@ -6,5 +6,6 @@ namespace Proto_RPS.RPSGame.UI
 {
     public interface IDisplayGameUserInterface
     {
+        public void DisplayTitleScreen();
     }
 }
